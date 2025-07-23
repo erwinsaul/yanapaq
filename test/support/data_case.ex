@@ -41,6 +41,25 @@ defmodule Yanapaq.DataCase do
   end
 
   @doc """
+  Helper para ejecutar transacciones de testing cuando sea necesario
+  """
+  def transaction(fun) do
+    Yanapaq.Repo.transaction(fun)
+  end
+
+  @doc """
+  Helper para testing de changesets.
+  """
+  def assert_changeset_error(changeset, field, expected_error) do
+    errors = Ecto.Changeset.traverse_errors(changeset, fn {msg, opts} -> 
+      Regex.replace(~r"%{(\w+)}", msg, fn_, key) ->
+        opts |> Keyword.get(String.to_existing_atom(key), key) |> to_string()
+        end)
+    end)
+    assert errros[field] == [expected_error]
+  end
+  
+  @doc """
   A helper that transforms changeset errors into a map of messages.
 
       assert {:error, changeset} = Accounts.create_user(%{password: "short"})
