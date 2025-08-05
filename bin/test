@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo "Corriendo Tests"
+
+#Configurar Entorno de testing
+export MIX_ENV=test
+
+# Limpiar y preparar base de datos de testing
+echo "Preparando test de Base de Datos"
+mix ecto.drop --quiet 2>/dev/null || true
+mix ecto.create --quiet
+mix ecto.migrate --quiet
+
+#Ejecutar test con coverage
+echo "Corriendo tests..."
+mix test --cover
+
+# Ejecutar análisis de código si está disponible
+if mix help credo >/dev/null 2>&1; then
+  echo "Corriendo analisis de codigo"
+  mix credo --strict
+fi
+
+if mix help dialyzer >/dev/null 2>&1; then
+  echo "Corriendo dialyze (si PLT existe)..."
+  mix dialyzer --quiet 2>/dev/null || echo "PLT no encontrado."
+fi
+
+echo "Tes completed"

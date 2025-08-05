@@ -64,3 +64,22 @@ defmodule YanapaqWeb.ConnCase do
      )
    end  
 end
+
+@doc"""
+Helper para testing deLiveView con datos especificos
+"""
+def live_isolated(conn, live_view, params \\ %{}, session \\ %{}) do
+  Phoenix.LiveViewTest.live_isolated(conn, live_view,
+    router: YanapaqWeb.Router,
+    session: session,
+    params: params
+  )
+end
+
+@doc """
+Helper para crear usuarios de prueba (Para proximas implementaciones)
+"""
+def create_user(_attrs \\ %{}) do
+  #Placeholder para cuando implementos usuarios
+  %{}
+end

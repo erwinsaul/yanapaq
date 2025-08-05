@@ -1,0 +1,28 @@
+#!/bin/bash
+# Script para ejecutar tests en modo watch
+
+export MIX_ENV=test
+
+echo "Iniciando el watcher test para Yanapaq"
+echo "Los casos de test se correran cuando los archivos cambien"
+
+mix ecto.create --quiet 2>/dev/null || true
+mis ecto.migrate --quiet 2>/dev/null || true
+
+#Usar fswatch si está disponible, sino usar mix test normal
+if command -c fswatch >/dev/null 2>&1; then
+  fswatch -o lib/ test/ | while read f; do
+    clear
+    echo "Files changed, running tests..."
+    mix test --stale
+  done
+else
+  echo "Instalando fswatch"
+  echo "Ejecutando test basico"
+  while true; do
+    mix test --stable
+    echo "Presiona cualquier tecla o CTRL+C"
+    read -n 1
+    clear
+  done
+fi
