@@ -27,6 +27,7 @@ defmodule YanapaqWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
+      import Phoenix.LiveViewTest
       import YanapaqWeb.ConnCase
     end
   end
@@ -36,50 +37,22 @@ defmodule YanapaqWeb.ConnCase do
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 
-  @doc"""
-  Helper para crear una conexión auntenticada si es necesario.
-  Por ahora no tenemos autenticación.
-  """
-  def create_user(_attr \\ %{}) do
-    # Placeholder para cuando se tenga usuarios
-    %{}
-  end
-
   @doc """
-  Helper para login (preparado para futuro)
+  Helper para testing deLiveView con datos especificos
   """
-  def log_in_user(conn, user) do
-    # Falta implementar
-    conn
-  end
-
-   @doc """
-   Helper para testing de LiveViews con datos especificos
-   """
-   def live_isolated(conn, live_view. params \\ %{}, session \\ %{}) do
+  def live_isolated(conn, live_view, params \\ %{}, session \\ %{}) do
      Phoenix.LiveViewTest.live_isolated(conn, live_view,
        router: YanapaqWeb.Router,
        session: session,
        params: params
      )
-   end  
-end
+  end
 
-@doc"""
-Helper para testing deLiveView con datos especificos
-"""
-def live_isolated(conn, live_view, params \\ %{}, session \\ %{}) do
-  Phoenix.LiveViewTest.live_isolated(conn, live_view,
-    router: YanapaqWeb.Router,
-    session: session,
-    params: params
-  )
-end
-
-@doc """
-Helper para crear usuarios de prueba (Para proximas implementaciones)
-"""
-def create_user(_attrs \\ %{}) do
-  #Placeholder para cuando implementos usuarios
-  %{}
+  @doc """
+  Helper para crear usuarios de prueba (Para proximas implementaciones)
+  """
+  def create_user(_attrs \\ %{}) do
+    #Placeholder para cuando implementos usuarios
+    %{}
+  end
 end

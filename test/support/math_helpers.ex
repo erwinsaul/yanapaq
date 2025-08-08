@@ -4,7 +4,7 @@ defmodule Yanapaq.MathHelpers do
   """
 
   @doc """
-  Compara números decimale con tolerancia para precision
+  Compara números decimales con tolerancia para precision
   """
   def assert_decimal_equal(actual, expected, tolerance \\ 0.0001) do
     diff = abs(Decimal.to_float(Decimal.sub(actual, expected)))
@@ -16,7 +16,7 @@ defmodule Yanapaq.MathHelpers do
   Compara números flotantes con tolerancia.
   """
   def assert_float_equal(actual, expected, tolerance \\ 0.0001) do
-    diff = abs(actual-expected)
+    diff = abs(actual - expected)
     assert diff < tolerance,
       "Expected #{actual} to be within #{tolerance} of #{expected}, but difference was #{diff}"
   end
@@ -31,10 +31,10 @@ defmodule Yanapaq.MathHelpers do
     end)
   end
 
-  @doc"""
+  @doc """
   Helper para generar pares de datos (X, Y) para regresión.
   """
-  def generate_regression_dataset(ize, slope \\ 1, intercept \\ 0, noise \\ 0.1) do
+  def generate_regression_dataset(size, slope \\ 1, intercept \\ 0, noise \\ 0.1) do
     1..size
     |> Enum.map(fn i ->
       x = i / size * 10
