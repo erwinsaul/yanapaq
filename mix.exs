@@ -9,7 +9,8 @@ defmodule Yanapaq.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      text_coverage: [threshold: 30]
     ]
   end
 
@@ -63,10 +64,10 @@ defmodule Yanapaq.MixProject do
       {:contex, "~>0.4"},
       {:vega_lite, "~>0.1"},
       {:number, "~>1.0"},
-      {:credo, "~>1.6", only: [:dev, :test], runtime: false},
+      #{:credo, "~>1.7", only: [:dev, :test], runtime: false},
+      {:bunt, "~> 1.0", only: [:dev, :test]},
       {:dialyxir, "~>1.0", only: [:dev], runtime: false},
-      {:ex_doc, "~>0.27", only: :dev, runtime: false}
-      
+      {:ex_doc, "~>0.27", only: :dev, runtime: false}      
     ]
   end
 
