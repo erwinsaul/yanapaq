@@ -24,6 +24,8 @@ defmodule Yanapaq.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Yanapaq.DataCase
+      import YanapaqWeb.TestHelpers
+      import Yanapaq.MathHelpers
     end
   end
 

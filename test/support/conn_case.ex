@@ -29,6 +29,7 @@ defmodule YanapaqWeb.ConnCase do
       import Phoenix.ConnTest
       import Phoenix.LiveViewTest
       import YanapaqWeb.ConnCase
+      import Yanapaq.MathHelpers
     end
   end
 
