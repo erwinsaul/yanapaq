@@ -16,7 +16,7 @@ defmodule YanapaqWeb.ConnCase do
   """
 
   use ExUnit.CaseTemplate
-
+  require Phoenix.LiveViewTest
   using do
     quote do
       # The default endpoint for testing

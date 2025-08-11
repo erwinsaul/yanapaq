@@ -3,6 +3,8 @@ defmodule Yanapaq.MathHelpers do
   Helpers específicos para testing de funcionalidades matemáticas
   """
 
+  import ExUnit.Assertions
+
   @doc """
   Compara números decimales con tolerancia para precision
   """
@@ -26,7 +28,7 @@ defmodule Yanapaq.MathHelpers do
   """
   def generate_test_dataset(size, min \\ 0, max \\ 100) do
     1..size
-    |> Enum.map (fn _ ->
+    |> Enum.map(fn _ ->
       :rand.uniform() * (max - min)+ min
     end)
   end
@@ -48,7 +50,7 @@ defmodule Yanapaq.MathHelpers do
   """
   def valid_logic_expression?(expression) when is_binary(expression) do
     # Simple validation - será mejorada cuando se implemnete el parser
-    String.match?(expression, ~r/^[A-Z&|!()^-> ]+$/)
+    String.match?(expression, ~r/^[A-Z&|!()^\-> ]+$/)
   end
 
   @doc """

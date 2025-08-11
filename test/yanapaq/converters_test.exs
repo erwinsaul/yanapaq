@@ -1,5 +1,5 @@
 defmodule Yanapaq.ConvertersTest  do
-  use Yanapaq.DataCase, async:true
+  use Yanapaq.DataCase, async: true
 
   # Test will de added when Converters context is implmented
   # This is a placeholder to verify directory structure
