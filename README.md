@@ -24,7 +24,7 @@ elixir --version
 erl -version
 sqlite3 --version
 node --version
-
+ˋˋˋ
 ## Instalación
 ### 1. Clonar el repositorio
 ˋˋˋbash
