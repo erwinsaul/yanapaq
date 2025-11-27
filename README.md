@@ -19,24 +19,25 @@ Necesitas tener instalado:
 - **Node.js**: 18.x o superior (para assets)
 
 ### Verificar versiones instaladas
-ˋˋˋbash
+```bash
 elixir --version
 erl -version
 sqlite3 --version
 node --version
-ˋˋˋ
+```
 ## Instalación
 ### 1. Clonar el repositorio
-ˋˋˋbash
+```bash
 git clone https://github.com/erwinsaul/yanapaq.git
 
 cd yanapaq
-
+```
 ### 2. Instalar dependencias
+```bash
 mix setup
-
+```
 Este comando hace:
-- mix deps.get - Descarga dependencias de Elixir
+- m➡️ ps.get - Descarga dependencias de Elixir
 - mix deps.compile - Compila dependencias
 - mix ecto.create - Crea la base de datos
 - mix run priv/repo/seeds.exs - carga datos iniciales
@@ -53,7 +54,7 @@ mix ecto.migrate
 
 Crea un archivo ˋ.envˋ en la raíz del proyecto, con el siguiente contenido
 
-ˋˋˋbash
+```bash
 # Base de datos
 DATABASE_PATH=priv/repo/yanapaq_dev.db
 
@@ -61,10 +62,11 @@ DATABASE_PATH=priv/repo/yanapaq_dev.db
 SECRET_KEY_BASE=tu_secret_key_aqui_genero_con_mix_gen_secret
 PHX_HOST=localhost
 PORT=4000
-
+```
 Generar SECRET_KEY_BASE
+```bash
 mix phx.gen.secret
-
+```
 copia el resultado a tu archivo .env
 
 La configuración está en:
@@ -80,14 +82,19 @@ SQLite3 guarda los archivos en:
 ### Iniciar el servidor
 
 **Opción 1: Con Make**
-ˋˋˋbash
+```bash
 make dev
+```
 
 **Opción 2: Con Mix**
+```bash
 mix phx.server
+```
 
 **Opción 3: Con IEx (consola interactiva)**
+```bash
 iex -S mix phx.server
+```
 
 El servidor estará disponible en: http://localhost:4000
 
@@ -101,7 +108,9 @@ Phoenix recarga automáticamente cuando cambias:
 
 Consola Interactiva (IEx)
 
+```bash
 iex -S mix
+```
 
 Útil para probar código:
 
