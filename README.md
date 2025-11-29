@@ -37,7 +37,7 @@ cd yanapaq
 mix setup
 ```
 Este comando hace:
-- m➡️ ps.get - Descarga dependencias de Elixir
+- mix ps.get - Descarga dependencias de Elixir
 - mix deps.compile - Compila dependencias
 - mix ecto.create - Crea la base de datos
 - mix run priv/repo/seeds.exs - carga datos iniciales
@@ -127,6 +127,182 @@ Aquí puedes ver:
 - Logs en tiempo real
 
 ## Testing
+
+### Ejecutar todos los tests
+**1. Con Make**
+```bash
+make test
+```
+**2. Con Mix**
+```bash
+mix test
+```
+### Tests específicos
+
+**Un archivo específico**
+```bash
+mix test test/yanapaq_web/controllers/page_controller_test.exs
+```
+
+**Una línea específica**
+```bash
+mix test test/yanapaq_web/controllers/page_controller_test.exs:12
+```
+**Tests que coincidan con un patroón**
+```bash
+mix test --only integration
+```
+
+## Comandos Disponibles
+
+### Make Commands
+```bash
+make setup              # Configuración incial del proyecto
+make dev                # Iniciar servidor de desarrollo
+make test               # Ejecutar todos los tests
+make test-watch         # Tests en modo watch
+make test-unit          # Solos test unitarios
+make coverage           # Tests con reporte de cobertura
+make format             # Formatear el código
+make lint               # Análisis estático del código
+make clean              # Limpiar archivos compilados
+```
+
+### Mix Commands Útiles
+
+```bash
+# Servidor
+mix phx.server           # Iniciar servidor
+iex -S mix phx.server    # Servidor con consola interactiva
+
+# Base de datos
+mix ecto.create          # Crear BD
+mix ecto.drop            # Eliminar BD
+mix ecto.migrate         # Ejecutar migraciones
+mix ecto.rollback        # Revertir última migración
+mix ecto.reset           # Drop + Create + Migrate + Seed
+
+# Generadores
+mix phx.gen.context      # Generar contexto con schemas
+mix phs.gen.live         # Generar LiveView CRUD
+mix phx.gen.html         # Generador controlador HTML CRUD
+mic phx.gen.json         # Generar controlador JSON API
+mix ecto.gen.migration   # Crear migración
+
+# Código
+mix format               # Formatear el código
+mix compile              # Compilar el proyecto
+mix clean                # Limpiar compilados
+
+# Dependencias
+mix deps.get             # Descargar dependencias
+mix deps.update --all    # Actualizar dependencias
+mix deps.clean --all     # Limpiar dependencias
+
+# Otros
+mix phx.routes           # Ver todas las rutas
+mix phx.gen.secret       # Generar SECRET_KEY_BASE
+```
+
+## Troubleshooting
+
+### Error "Could not find SQLite3"
+**Solución**: Instalar SQLite3
+
+### Error: "Secret key base is not set"
+**Solución**: Generar y configurar SECRET_KEY_BASE
+
+```bash
+mix phx.gen.secret
+# Copiar el resultado a config/dev.exs o variable de entorno
+```
+
+### Error: "Catabase does not exist"
+
+**Solución**:
+mix ecto.create
+mix ecto.migrate
+
+### Error: "Port 4000 already in use"
+
+**Solución 1**: Matar el proceso usando el puerto
+```bash
+lsof -ti:4000 | xargs kill -9
+```
+
+**Solución 2**: Cambiar el puerto
+```bash
+PORT=4001 mix phx.server
+```
+
+### Error: "Node modules not found" o problemas con assets
+
+**Solución**:
+```bash
+cd assets
+npm install
+cd ..
+mix assets.deploy
+```
+### Error: Mix dependencies no compilan
+**Solución**:
+```bash
+mix deps.clean --all
+mix deps.get
+mix deps.compile
+```
+Limpiar todo y empesar de nuevo
+
+```bash
+mix ecto.reset         # Reset BD
+mix deps.clean --all   # Limpiar deps
+mis clean              # Limpiar compilados
+rm -rf _build          # Eliminar build
+mix deps.get           # Re-descargar deps
+mix setup              # Setup completo
+```
+
+## Contribuir
+### Workflow de desarrollo
+1. **Crear una rama**
+   ```bash
+   git checkout -b feature/nombre-feature
+   ```
+  
+2. Hacer Cambios
+   - Escribe el código
+   - Agrega tests
+   - Asegúrate que pasen: make test
+  
+3. Formatear el código
+  ```bash
+  make format
+  ```
+
+4. Commit
+  ```bash
+  git add .
+  git commit -m "Descripción clara del cambio"
+  ```
+
+5. Push y Pull
+  ```bash
+  git push origin feature/nombre-feature
+  ```
+
+## Contacto:
+- **Autor**: Erwin Saul Serrudo Condori
+- **Email**: erwinsaul.sc@gmail.com
+
+
+
+
+
+
+
+
+
+
 
 
 
