@@ -20,6 +20,15 @@ defmodule YanapaqWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/converters", YanapaqWeb do
+    pipe_through :browser
+    live "/", ConverterIndexLive, :index
+    live "/length", LengthConverterLive, :index
+    live "/weight", WeightConverterLive, :index
+    live "/temperature", TemperatureConverterLive, :index
+    live "/volume", VolumeConverterLive, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", YanapaqWeb do
   #   pipe_through :api
