@@ -27,7 +27,34 @@ defmodule YanapaqWeb.Components.Navigation do
             <.nav_link href={~p"/converters/volume"} current_page={@current_page}>Volumen</.nav_link>
           </nav>
 
+          <!-- Botón Menú Móvil -->
+          <.link patch={~p"/menu"} class="md:hidden p-2 text-gray-600 hover:text-blue-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          <./link>
+        </div>
+      </div>
     </header>
     """
   end
+  # Componente para cada link del menú
+  attr :href, :string, required: true
+  attr :current_path, :string, required: true
+  slot :inner_block, required: true
+  def nav_link(assigns) do
+    ~H"""
+    <.link navigate={@href} class={["transition-colors font-medium pb-1",
+      if @active do
+        "text-blue-600 border-b-2 border-blue-600"
+      else
+        "text-gray-600 hover:text-blue-600"
+      end
+    ]}
+    >
+      <%= render_slot(@inner_block) %>
+    </.link>
+    """
+  end
+
 end
