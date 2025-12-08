@@ -29,6 +29,11 @@ defmodule YanapaqWeb.Router do
     live "/volume", VolumeConverterLive, :index
   end
 
+  scope "/", YanapaqWeb do
+    pipe_through :browser
+    live "/menu", MobileMenuLive, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", YanapaqWeb do
   #   pipe_through :api

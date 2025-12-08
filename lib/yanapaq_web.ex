@@ -82,13 +82,12 @@ defmodule YanapaqWeb do
 
   defp html_helpers do
     quote do
-      # Translation
-      use Gettext, backend: YanapaqWeb.Gettext
-
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
       import YanapaqWeb.CoreComponents
+      import YanapaqWeb.Components.Navigation
+      import YanapaqWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
