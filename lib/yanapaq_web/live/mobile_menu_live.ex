@@ -7,13 +7,14 @@ defmodule YanapaqWeb.MobileMenuLive do
   def render(assigns) do
     ~H"""
     <div class="fixed inset-0 z-50 bg-gray-600 bg-opacity-75" phx-click="close">
-      <div class="fixed inset-y-0 right-0 max-w-ws w-full bg-white shadow-xl">
+      <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl">
         <!-- Header del Menú -->
           <div class="flex items-center justify-between p-4 border-b">
             <h2 class="text-lg font-semibold text-gray-900">Menú</h2>
             <button phx-click="close" class="p-2 text-gray-600 hover:text-gray-900">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-ilnejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
           </div>
 

@@ -27,6 +27,7 @@ defmodule YanapaqWeb.Router do
     live "/weight", WeightConverterLive, :index
     live "/temperature", TemperatureConverterLive, :index
     live "/volume", VolumeConverterLive, :index
+    live "/menu", MobileMenuLive, :index
   end
 
   scope "/", YanapaqWeb do
