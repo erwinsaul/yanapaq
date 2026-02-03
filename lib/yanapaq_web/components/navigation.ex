@@ -43,7 +43,7 @@ defmodule YanapaqWeb.Components.Navigation do
   attr :current_path, :string, required: true
   slot :inner_block, required: true
   def nav_link(assigns) do
-    assigns  = assigns(assigns, :active, String.starts_with?(assigns.current_path, assigns.href))
+    assigns  = assign(assigns, :active, String.starts_with?(assigns.current_path, assigns.href))
     ~H"""
     <.link navigate={@href} class={["transition-colors font-medium pb-1",
       if @active do

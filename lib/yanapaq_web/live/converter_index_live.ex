@@ -8,7 +8,7 @@ defmodule YanapaqWeb.ConverterIndexLive do
   def render(assigns) do
     ~H"""
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-3xl font-bold text-gray-900-mb-6">Convertidor de Unidades</h1>
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">Convertidor de Unidades</h1>
 
       <p class="text-gray-600 mb-8">
         Seleccione el tipo de conversión que necesitas:
@@ -45,7 +45,7 @@ defmodule YanapaqWeb.ConverterIndexLive do
           </.link>
 
         <!-- Tarjeta Volumen -->
-          <.link navigate={~"/converters/volume"} class="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
+          <.link navigate={~p"/converters/volume"} class="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
             <div class="flex items-center gap-4">
               <div>
                 <h2 class="text-xl font-semibold text-gray-900">Volumen</h2>
