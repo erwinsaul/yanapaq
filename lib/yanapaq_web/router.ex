@@ -18,6 +18,7 @@ defmodule YanapaqWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/menu", MobileMenuLive, :index
   end
 
   scope "/converters", YanapaqWeb do
@@ -27,12 +28,6 @@ defmodule YanapaqWeb.Router do
     live "/weight", WeightConverterLive, :index
     live "/temperature", TemperatureConverterLive, :index
     live "/volume", VolumeConverterLive, :index
-    live "/menu", MobileMenuLive, :index
-  end
-
-  scope "/", YanapaqWeb do
-    pipe_through :browser
-    live "/menu", MobileMenuLive, :index
   end
 
   # Other scopes may use custom stacks.

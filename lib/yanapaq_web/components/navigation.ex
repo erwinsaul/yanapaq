@@ -28,7 +28,7 @@ defmodule YanapaqWeb.Components.Navigation do
           </nav>
 
           <!-- Botón Menú Móvil -->
-          <.link patch={~p"/menu"} class="md:hidden p-2 text-gray-600 hover:text-blue-600">
+          <.link patch={~p"/menu?from=#{@current_path}"} class="md:hidden p-2 text-gray-600 hover:text-blue-600">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -43,7 +43,11 @@ defmodule YanapaqWeb.Components.Navigation do
   attr :current_path, :string, required: true
   slot :inner_block, required: true
   def nav_link(assigns) do
-    assigns  = assign(assigns, :active, String.starts_with?(assigns.current_path, assigns.href))
+    is_active = cond do
+      assigns.href == ~p"/converters" -> assigns.current_path == "/converters"
+      true -> String.starts_with?(assigns.current_path, assigns.href)
+    end
+    assigns = assign(assigns, :active, is_active)
     ~H"""
     <.link navigate={@href} class={["transition-colors font-medium pb-1",
       if @active do

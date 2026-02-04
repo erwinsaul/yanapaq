@@ -39,7 +39,7 @@ defmodule YanapaqWeb.ConverterIndexLive do
             <div class="flex items-center gap-4">
               <div>
                 <h2 class="text-xl font-semibold text-gray-900">Temperatura</h2>
-                <p class="text-gray-600">Celsius, Fahrenheit, Kelvi...</p>
+                <p class="text-gray-600">Celsius, Fahrenheit, Kelvin...</p>
               </div>
             </div>
           </.link>

@@ -1,7 +1,9 @@
 defmodule YanapaqWeb.MobileMenuLive do
   use YanapaqWeb, :live_view
-  def mount(_params, _session, socket) do
-    {:ok, socket}
+  def mount(params, _session, socket) do
+    return_path = Map.get(params, "from", "/converters")
+
+    {:ok, assign(socket, :return_path, return_path)}
   end
 
   def render(assigns) do
@@ -41,6 +43,6 @@ defmodule YanapaqWeb.MobileMenuLive do
     """
   end
   def handle_event("close", _params, socket) do
-   {:noreply, push_navigate(socket, to: ~p"/converters")}
+    {:noreply, push_navigate(socket, to: socket.assigns.return_path)}
   end
 end
