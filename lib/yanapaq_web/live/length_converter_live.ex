@@ -1,12 +1,13 @@
 defmodule YanapaqWeb.LengthConverterLive do
+  use YanapaqWeb, :live_view
   def mount(_params, _session, socket) do
-    socket = assign(socket, value: "", from_unit: "m")
+    socket = assign(socket, value: "", from_unit: "m", to_unit: "m", result: nil)
     {:ok, socket}
   end
 
   def render(assigns) do
     ~H"""
-    <div class="ma-w-2xl mx-auto">
+    <div class="max-w-2xl mx-auto">
       <h1 class="text-3xl font-bold text-gray-900 mb-6">Convertidor de Longitud</h1>
       <div class="bg-white rounded-lg shadow p-6">
         <form phx-change="convert" phx-submit="convert">
@@ -33,7 +34,7 @@ defmodule YanapaqWeb.LengthConverterLive do
             <select name="to_unit" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
               <option value="m" selected={@to_unit == "m"}>Metros (m)</option>
               <option value="km" selected={@to_unit == "km"}>Kilometros (km)</option>
-              <option value="cm" selected={@to_unit == "cm"}">Centímetros (cm)</option>
+              <option value="cm" selected={@to_unit == "cm"}>Centímetros (cm)</option>
               <option value="ft" selected={@to_unit == "ft"}>Pies (ft)</option>
               <option value="in" selected={@to_unit == "in"}>Pulgadas (in)</option>
             </select>
@@ -54,13 +55,13 @@ defmodule YanapaqWeb.LengthConverterLive do
   end
 
   def handle_event("convert", %{"value" => value,"from_unit" => from, "to_unit" => to}, socket) do
-    result = calculate_length(avlue, from, to)
+    result = calculate_length(value, from, to)
     socket = assign(socket, value: value, from_unit: from, to_unit: to, result: result)
     {:noreply, socket}
   end
 
   defp calculate_length("", _from, _to), do: nil
-  defp calulate_length(value, from, to) do
+  defp calculate_length(value, from, to) do
     case Float.parse(value) do
       {num, _} ->
         # Convertir todo a metros primero
@@ -74,7 +75,7 @@ defmodule YanapaqWeb.LengthConverterLive do
   # Convertir a metros
   defp to_meters(value, "m"), do: value
   defp to_meters(value, "km"), do: value * 1000
-  defp to meters(value, "cm"), do: value / 100
+  defp to_meters(value, "cm"), do: value / 100
   defp to_meters(value, "ft"), do: value * 0.3048
   defp to_meters(value, "in"), do: value * 0.0254
 
@@ -82,7 +83,7 @@ defmodule YanapaqWeb.LengthConverterLive do
   defp from_meters(value, "m"), do: value
   defp from_meters(value, "km"), do: value / 1000
   defp from_meters(value, "cm"), do: value * 100
-  defp from_meters(value, "ft"), do: value / 0.348
+  defp from_meters(value, "ft"), do: value / 0.3048
   defp from_meters(value, "in"), do: value / 0.0254
 
 end
