@@ -34,11 +34,13 @@ defmodule YanapaqWeb.HomeLive do
             </.link>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <.link :for={tool <- category.tools} navigate={tool.path} class="block p-5 bg-white rounded-lg shadow hovero:shadow-md transition-shadow border border-gray-100">
-              <h3 class="font-semibold text-gray-900"><%= tool.name %></h3>
-              <p class="text-sm text-gray-500 mt-1"><%= tool.desc %> </p>
-            </.link>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+            <.tool_card
+              :for={tool <- category.tools}
+              name={tool.name}
+              path={tool.path}
+              desc={tool.desc}
+            />
           </div>
         </div>
       </div>

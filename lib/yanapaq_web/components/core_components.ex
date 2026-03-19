@@ -673,4 +673,17 @@ defmodule YanapaqWeb.CoreComponents do
   def translate_errors(errors, field) when is_list(errors) do
     for {^field, {msg, opts}} <- errors, do: translate_error({msg, opts})
   end
+
+
+  attr :name, :struing, required: true
+  attr :path, :string, required: true
+  attr :desc, :string, required: true
+  def tool_card(assigns) do
+    ~H"""
+      <.link navigate={@path} class="flex flex-col p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 border border-gray-100 hover:border-blue-200 hover:-translate-y-0.5 group">
+        <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors"><%= @name %></h3>
+        <p class="text-sm text-gray-500 mt-1"><%= @desc%></p>
+      </.link>
+    """
+  end
 end
