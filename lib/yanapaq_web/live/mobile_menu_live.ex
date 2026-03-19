@@ -22,7 +22,7 @@ defmodule YanapaqWeb.MobileMenuLive do
 
           <!-- Links del menú -->
           <nav class="flex flex-col p-4 space-y-2">
-            <.link navigate={~p"/converters"} class="px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <.link navigate={~p"/"} class="px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">
             Inicio
             </.link>
             <.link navigate={~p"/converters/length"} class="px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">

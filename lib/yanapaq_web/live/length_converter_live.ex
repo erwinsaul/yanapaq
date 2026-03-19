@@ -17,27 +17,29 @@ defmodule YanapaqWeb.LengthConverterLive do
             <input type="number" name="value" value={@value} step="any" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Ingresa un Valor"/>
           </div>
 
-          <!-- Unidad Origen -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">De</label>
-            <select name="from_unit" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-              <option value="m" selected={@from_unit == "m"}>Metros (m) </option>
-              <option value="km" selected={@from_unit == "km"}>Kilómetros (km)</option>
-              <option value="cm" selected={@from_unit == "cm"}>Centímetros (cm) </option>
-              <option value="ft" selected={@from_unit == "ft"}> Pies (ft) </option>
-              <option value="in" selected={@from_unit == "in"}>Pulgadas (in) </option>
-            </select>
-          </div>
-          <!-- Unidad Destino -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">A</label>
-            <select name="to_unit" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
-              <option value="m" selected={@to_unit == "m"}>Metros (m)</option>
-              <option value="km" selected={@to_unit == "km"}>Kilometros (km)</option>
-              <option value="cm" selected={@to_unit == "cm"}>Centímetros (cm)</option>
-              <option value="ft" selected={@to_unit == "ft"}>Pies (ft)</option>
-              <option value="in" selected={@to_unit == "in"}>Pulgadas (in)</option>
-            </select>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <!-- Unidad Origen -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">De</label>
+              <select name="from_unit" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                <option value="m" selected={@from_unit == "m"}>Metros (m) </option>
+                <option value="km" selected={@from_unit == "km"}>Kilómetros (km)</option>
+                <option value="cm" selected={@from_unit == "cm"}>Centímetros (cm) </option>
+                <option value="ft" selected={@from_unit == "ft"}> Pies (ft) </option>
+                <option value="in" selected={@from_unit == "in"}>Pulgadas (in) </option>
+              </select>
+            </div>
+            <!-- Unidad Destino -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">A</label>
+              <select name="to_unit" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                <option value="m" selected={@to_unit == "m"}>Metros (m)</option>
+                <option value="km" selected={@to_unit == "km"}>Kilometros (km)</option>
+                <option value="cm" selected={@to_unit == "cm"}>Centímetros (cm)</option>
+                <option value="ft" selected={@to_unit == "ft"}>Pies (ft)</option>
+                <option value="in" selected={@to_unit == "in"}>Pulgadas (in)</option>
+              </select>
+            </div>
           </div>
 
           <!-- Resultado -->

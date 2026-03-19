@@ -17,7 +17,7 @@ defmodule YanapaqWeb.Router do
   scope "/", YanapaqWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", HomeLive, :index
     live "/menu", MobileMenuLive, :index
   end
 

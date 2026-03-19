@@ -20,7 +20,7 @@ defmodule YanapaqWeb.Components.Navigation do
 
           <!-- Navegacion -->
           <nav class="hidden md:flex items-center gap-6">
-            <.nav_link href={~p"/converters"} current_page={@current_path}>Inicio</.nav_link>
+            <.nav_link href={~p"/"} current_page={@current_path}>Inicio</.nav_link>
             <.nav_link href={~p"/converters/length"} current_page={@current_path}>Longitud</.nav_link>
             <.nav_link href={~p"/converters/weight"} current_page={@current_path}>Peso</.nav_link>
             <.nav_link href={~p"/converters/temperature"} current_page={@current_path}>Temperatura</.nav_link>
