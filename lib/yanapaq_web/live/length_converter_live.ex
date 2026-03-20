@@ -9,6 +9,10 @@ defmodule YanapaqWeb.LengthConverterLive do
     ~H"""
     <div class="max-w-2xl mx-auto">
       <h1 class="text-3xl font-bold text-gray-900 mb-6">Convertidor de Longitud</h1>
+      <p class="text-gray-600 mb-6">
+         Ingresa un valor, selecciona la unidad de origen y la unidad de destino.
+         El resultado se calcula automáticamente.
+      </p>
       <div class="bg-white rounded-lg shadow p-6">
         <form phx-change="convert" phx-submit="convert">
           <!-- Valor de de Entrada -->

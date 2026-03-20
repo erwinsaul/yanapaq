@@ -7,10 +7,10 @@ defmodule YanapaqWeb.HomeLive do
         description: "Convertidor de unidades de medida",
         path: ~p"/converters",
         tools: [
-          %{name: "longitud", path: ~p"/converters/length", desc: "m, km, ft, in"},
-          %{name: "peso", path: ~p"/converters/weight", desc: "kg, lb, oz"},
-          %{name: "temperatura", path: ~p"/converters/temperature", desc: "°C, °F, °K"},
-          %{name: "volumen", path: ~p"/converters/volume", desc: "L, mL, gal"}
+          %{name: "longitud", path: ~p"/converters/length", desc: "Convierte entre metros (m), kilómetros(km), pies(ft), pulgadas(in) y centimetros(cm)"},
+          %{name: "peso", path: ~p"/converters/weight", desc: "Convierte entre Kilogramos(kg), Libras(lb) y Onzas(oz)"},
+          %{name: "temperatura", path: ~p"/converters/temperature", desc: "Convierte entre Centigrados (°C), Fahrenheit(°F), Kelvin(°K)"},
+          %{name: "volumen", path: ~p"/converters/volume", desc: "Convierte entre Litros(L), miliLitros(mL), Galones(gal)"}
         ]
       }
     ]

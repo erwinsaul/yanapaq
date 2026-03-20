@@ -20,7 +20,7 @@ defmodule YanapaqWeb.ConverterIndexLive do
             <div class="flex items-center gap-4">
               <div>
                 <h2 class="text-xl font-semibold text-gray-900">Longitud</h2>
-                <p class="text-gray-600">Metros, kilómetros, pies, pulgadas...</p>
+                <p class="text-gray-600">Convierte entre: Metros, kilómetros, pies, pulgadas...</p>
               </div>
             </div>
           </.link>
@@ -30,7 +30,7 @@ defmodule YanapaqWeb.ConverterIndexLive do
             <div class="flex items-center gap-4">
               <div>
                 <h2 class="text-xl font-semibold text-gray-900">Peso</h2>
-                <p class="text-gray-600">Gramos, kilogramos, libras, onzas...</p>
+                <p class="text-gray-600">Convierte entre: Gramos, kilogramos, libras, onzas...</p>
               </div>
             </div>
           </.link>
@@ -39,7 +39,7 @@ defmodule YanapaqWeb.ConverterIndexLive do
             <div class="flex items-center gap-4">
               <div>
                 <h2 class="text-xl font-semibold text-gray-900">Temperatura</h2>
-                <p class="text-gray-600">Celsius, Fahrenheit, Kelvin...</p>
+                <p class="text-gray-600">Convierte entre: Celsius, Fahrenheit, Kelvin...</p>
               </div>
             </div>
           </.link>
@@ -49,7 +49,7 @@ defmodule YanapaqWeb.ConverterIndexLive do
             <div class="flex items-center gap-4">
               <div>
                 <h2 class="text-xl font-semibold text-gray-900">Volumen</h2>
-                <p class="text-gray-600">Litros, mililitros, galones...</p>
+                <p class="text-gray-600">Convierte entre: Litros, mililitros, galones...</p>
               </div>
             </div>
           </.link>
