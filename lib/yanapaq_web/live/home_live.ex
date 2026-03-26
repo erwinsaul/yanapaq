@@ -21,6 +21,7 @@ defmodule YanapaqWeb.HomeLive do
     <div class="max-w-5xl mx-auto">
       <div class="mb-10">
          <h1 class="text-4xl font-bold text-gray-900">Yanapaq</h1>
+         <p class="text-gray-500 mt-2">Herramientas de Conversión de Unidades</p>
       </div>
 
       <div class="space-y-10">

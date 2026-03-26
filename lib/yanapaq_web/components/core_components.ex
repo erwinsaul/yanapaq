@@ -675,7 +675,7 @@ defmodule YanapaqWeb.CoreComponents do
   end
 
 
-  attr :name, :struing, required: true
+  attr :name, :string, required: true
   attr :path, :string, required: true
   attr :desc, :string, required: true
   def tool_card(assigns) do
