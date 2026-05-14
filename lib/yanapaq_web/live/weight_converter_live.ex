@@ -52,20 +52,13 @@ defmodule YanapaqWeb.WeightConverterLive do
   end
 
   def handle_event("convert", %{"value" => value, "from_unit" => from, "to_unit" => to}, socket) do
-    result = calculate_weight(value, from, to)
+    result = case Yanapaq.Converters.Weight.convert(value, from, to) do
+               {:ok, val} -> "#{val} #{to}"
+               {:error, _} -> nil
+             end
+
     socket = assign(socket, value: value, from_unit: from, to_unit: to, result: result)
     {:noreply, socket}
-  end
-
-  defp calculate_weight("", _from, _to), do: nil
-  defp calculate_weight(value, from, to) do
-    case Float.parse(value) do
-      {num, _} ->
-        grams = to_grams(num, from)
-        result = from_grams(grams, to)
-        "#{Float.round(result, 4)} #{to}"
-      :error -> nil
-    end
   end
 
   # Convertir a gramos (unidad base)
