@@ -36,6 +36,7 @@ defmodule YanapaqWeb.WeightConverterLive do
                 <option value="g" selected={@to_unit == "g"}>Gramos (g)</option>
                 <option value="lb" selected={@to_unit == "lb"}>Libras (lb)</option>
                 <option value="oz" selected={@to_unit == "oz"}>Onzas (oz)</option>
+              </select>
             </div>
           </div>
           <%= if @result do %>
